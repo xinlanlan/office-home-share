@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<body>
+	</body>
+	<script src="vconsole.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//第一题
+		/*(function() {
+			var m = 0;
+			function getM() {
+				return m;
+			}
+			function seta(val) {
+				m = val;
+			}
+			window.g = getM;
+			window.f = seta;
+		})();
+		f(100);
+		console.info(g());	//100*/
+		
+		//第二题与第三天的区别
+		/*function a() {
+			var i = 0;
+			function b() {
+				console.log(++i);
+			};
+			return b;
+		};
+		var c = a();
+		c();	//1
+		c();	//2*/
+		
+		//第三题
+		/*function a() {
+			var i = 0;
+			function b() {
+				console.log(++i);
+			};
+			return b;
+		};
+		a()();	//1
+		a()();	//1*/
+		
+		//第四题
+		var add = function(x) {
+			var sum = 1;
+			var tmp = function(x) {
+				sum = sum + x;
+				return tmp;
+			};
+			tmp.toString = function() {
+				return sum;
+			};
+			return tmp;
+		};
+		console.log(add(1)(2)(3));
+	</script>
+</html>

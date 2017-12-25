@@ -1,0 +1,257 @@
+@charset "utf-8";
+.indexRed{
+	margin: 0 auto;
+	width: 750px;		
+}
+.indexRed-cent{
+	margin-top: 89px;
+	height: 2000px;
+	background: url(../../images/indexRed-bg.png) no-repeat;
+	overflow: hidden;
+	text-align: center;
+}
+.indexRed-giftbox{
+	margin: 290px auto 20px;
+	width: 373px;
+	height: 254px;
+	background: url(../../images/indexRed-giftbox.png) no-repeat;
+}
+.indexRed-btn{
+	display: inline-block;
+	width: 320px;
+	height: 108px;
+	background: url(../../images/btn-receivess.png) no-repeat;
+}
+.indexRed-rule{
+	margin: 135px auto 0;
+    width: 510px;
+}
+.indexRed-rule,
+.indexRed-state{
+    color: #5418ab;
+    text-align: left;
+}
+.indexRed-rule h3{
+	margin-bottom: 10px;
+}
+.title-h3{    
+    font-size:30px;
+}
+.indexRed-rule p{
+	line-height: 34px;
+    font-size:24px;
+}
+.indexRed-state{
+    margin: 261px auto 0;
+    width: 580px;
+}
+.indexRed-state h3{
+	margin-bottom: 19px;
+}
+.indexRed-state p{
+	padding-left: 5px;
+	line-height: 36px;
+	font-size:22px;
+}
+.indexRed-state .ml20{
+    margin-left: 13px;
+}
+/*indexRed-popup start*/
+.indexRed-popup{
+	display: none;
+    position: fixed;
+    z-index: 1000;
+    top:50%;
+    left: 50%;   
+    margin-left: -320px;
+	margin-top: -284px;
+	width: 639px;
+	height: 568px;
+	background: url(../../images/indexRed-popup1.png) no-repeat;
+	text-align: center;
+}
+.indexRed-close{
+    position: absolute;
+    top:68px;
+    right: 63px;
+    height:49px;width:49px;
+    display: inline-block;
+    background: url(../../images/indexRed-colse.png) no-repeat;
+    cursor: pointer;
+}
+.indexRed-Ant{display: inline-block;}
+.indexRed-popup>p{	
+	width: 560px;
+	font-size: 30px;
+	color: #666;
+} 
+.indexRed-popup>div{
+	display: inline-block;
+	width: 410px;
+	font-size: 24px;
+	color: #999;
+	line-height: 34px;
+}   
+.indexRed-btnOk,.indexRed-btnlogin{
+	margin: 0 auto;
+	display: block;
+	background-image: url(../../images/indexRed-btn.png);
+	background-repeat: no-repeat;
+	width:222px;
+}
+.indexRed-btnOk{height:69px;background-position:0 0;}
+.indexRed-btnlogin{height:70px;background-position:0 -69px;}
+
+#indexRed-popup1 .indexRed-Ant{
+	margin-top: 95px;
+	width: 131px;
+	height: 189px;
+	background: url(../../images/indexRed-icon1.png) no-repeat;
+}
+#indexRed-popup1>p{
+	margin: 31px 0 53px 32px;
+}
+#indexRed-popup2 .indexRed-Ant{
+	margin-top: 77px;
+	width: 171px;
+	height: 175px;
+	background: url(../../images/indexRed-icon2.png) no-repeat;
+}
+#indexRed-popup2>p{
+	margin: 13px 0 17px 32px;
+}
+#indexRed-popup2>div{
+	margin-bottom: 36px;
+}
+#indexRed-popup3 .indexRed-Ant{
+	margin-top: 95px;
+	width: 139px;
+	height: 188px;
+	background: url(../../images/indexRed-icon3.png) no-repeat;
+}
+#indexRed-popup3>p{
+	margin: 31px 0 53px 62px;
+	width: 530px;
+}
+#indexRed-popup4 .indexRed-Ant{
+	margin-top: 70px;
+	width: 132px;
+	height: 184px;
+	background: url(../../images/indexRed-icon4.png) no-repeat;
+}
+#indexRed-popup4>p{
+	margin: 15px 0 5px 32px;
+}
+#indexRed-popup4>div{
+	width: 445px;
+	margin-bottom: 26px;
+}
+#indexRed-popup5{
+	margin-left: -368px;
+	margin-top: -405px;
+	width: 737px;
+	height: 811px;
+	background: url(../../images/indexRed-popup2.png) no-repeat;
+}
+#indexRed-popup5 .indexRed-close{
+	top: 72px;
+	right: 58px;
+}
+#indexRed-popup5 h3{
+	margin-top: 90px;
+	margin-bottom: 20px;
+	font-size: 36px;
+	color: #5418ab;
+}
+#indexRed-popup5 p{
+	margin-left: 85px;
+	width: 570px;
+	font-size: 22px;
+	color: #404040;
+	line-height: 38px;
+	text-align: left;
+}
+/*旋转背景遮罩方法一 start*/
+#BgDiv-rotate{
+	position: fixed;top:0;left:0;height: 100%;width: 100%; background-color: rgba(255,255,255,0.75);
+	z-index: 200;
+	display: none;
+}
+.Bgloader{
+	box-sizing: border-box;
+	display: flex;
+	flex: 0 1 auto;
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: 25%;
+	max-width: 25%;
+	height: 200px;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	margin:0 auto;
+}
+@-webkit-keyframes rotate {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg); }
+
+	50% {
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg); }
+
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg); } }
+
+@keyframes rotate {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	50% {
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+.ball-clip-rotate > div {
+	background-color: #f66;
+	width: 15px;
+	height: 15px;
+	border-radius: 100%;
+	margin: 2px;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	border: 3px solid #f66;
+	border-bottom-color: transparent;
+	height: 75px;
+	width: 75px;
+	background: transparent !important;
+	display: inline-block;
+	-webkit-animation: rotate 0.75s 0s linear infinite;
+	animation: rotate 0.75s 0s linear infinite;
+}
+/*旋转背景遮罩方法一 end*/
+/*旋转背景遮罩方法二 start*/
+#BgDiv-rotate-img{
+	position: fixed;top:0;left:0;
+	height:100%;width:100%;background: rgba(255,255,255,0.75);
+	z-index: 100;
+	display: none;
+	text-align: center;
+}
+#BgDiv-rotate-img span {
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+	width: 1px;
+	margin-left: -1px;
+}
+/*旋转背景遮罩方法二 end*/

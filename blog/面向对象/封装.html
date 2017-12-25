@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*function Cat(name,color){
+			this.name = name;
+			this.color = color;
+		};
+		var cat1 = new Cat('大毛','黄色');
+		var cat2 = new Cat('小猫','蓝色');*/
+		
+		//此时发现cat1与cat2的构造函数是同一个
+		//console.log(cat1.constructor == Cat); //true
+　　		//console.log(cat2.constructor == Cat); //true
+		
+		//Javascript还提供了一个instanceof运算符，验证原型对象与实例对象之间的关系。
+		//console.log(cat1 instanceof Cat); //true
+　　		//console.log(cat2 instanceof Cat); //true
+
+		/*表面上好像没什么问题，但是实际上这样做，有一个很大的弊端。那就是对于每一个实例对象，type属性和eat()方法都是一模一样的内容，
+		每一次生成一个实例，都必须为重复的内容，多占用一些内存。这样既不环保，也缺乏效率。*/
+		/*function Cat(name,color){
+			this.name = name;
+			this.color = color;
+			this.type = '动物';
+			this.eat = function(){
+				console.log('吃鱼人');
+			};
+		};
+		var cat1 = new Cat('大毛','黄色');
+		var cat2 = new Cat('小猫','蓝色');
+		console.log(cat1.eat == cat2.eat);	//false
+		console.log(Cat.prototype)*/
+		
+		//能不能让type属性和eat()方法在内存中只生成一次，然后所有实例都指向那个内存地址呢？回答是可以的
+		function Cat(name,color){
+			this.name = name;
+			this.color = color;
+		};
+		Cat.prototype.type = '动物';
+		Cat.prototype.eat = function(){
+			console.log('吃鱼人');
+		};
+		var cat1 = new Cat('大毛','黄色');
+		var cat2 = new Cat('小猫','蓝色');
+		console.log(cat1.eat == cat2.eat);	//true;
+		console.log(Cat.prototype.isPrototypeOf(cat1));	//true
+		
+		//每个实例对象都有一个hasOwnProperty()方法，用来判断某一个属性到底是本地属性，还是继承自prototype对象的属性。
+		console.log(cat1)
+		console.log(cat1.hasOwnProperty('name'));	//true
+		console.log(cat1.hasOwnProperty('type')); 	//false
+		
+		//in运算符可以用来判断，某个实例是否含有某个属性，不管是不是本地属性
+		console.log("name" in cat1); // true
+　　		console.log("type" in cat1); // true
+	</script>
+</html>

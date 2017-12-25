@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function Cat(name,age){
+			this.name = name;
+			this.age = age;
+			this.eat = function(){
+				console.log('鱼');
+			};
+		};
+		Cat.prototype.type = '猫科动物';
+		Cat.prototype.sex = function(){
+			console.log('无性别');
+		};
+		
+		var cat1 = new Cat('喵咪','2');
+		var cat2 = new Cat('喵喵','3');
+		
+		console.log(cat1.type);
+		console.log(cat2.type);
+		console.log(cat1.eat == cat2.eat);
+		//这时所有实例的type属性和eat()方法，其实都是同一个内存地址，指向prototype对象，因此就提高了运行效率
+		console.log(cat1.sex == cat2.sex);
+		
+		//每个实例对象都有一个hasOwnProperty()方法，用来判断某一个属性到底是本地属性，还是继承自prototype对象的属性。
+		console.log(cat1.hasOwnProperty('name'));
+		console.log(cat1.hasOwnProperty('type'));
+		
+		for(var prop in cat1){
+			console.log("cat1["+prop+"]="+cat1[prop]);
+		}
+	</script>
+</html>

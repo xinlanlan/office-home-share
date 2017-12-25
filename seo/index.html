@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<textarea>我是发射点法</textarea>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		$.ajax("http://jobreading.xftimes.com/ebook/validateUser", {
+
+		  type: "GET",
+		  
+		  data : {
+				username: '18888888888',
+				pwd: '1bbd886460827015e5d605ed44252251'
+			},
+		
+		  crossDomain: true,
+		
+		  success: function(data, status, xhr) {
+				console.log(data);
+			 console.log(xhr.getResponseHeader('Set-Cookie'));
+				/*$.ajax({
+					type : "get",
+					url : "http://jobreading.xftimes.com/ebook/countInfo/selectPresonalKaoshiScoreCountInfo",
+					data : {
+						username: '18888888888',
+						pwd: '1bbd886460827015e5d605ed44252251'
+					},
+					success : function(data) {
+						console.log(data);
+					}
+				});*/
+		  }
+		//*://*/*
+		});
+		/*$.ajax({
+			type : "get",
+			url : "http://jobreading.xftimes.com/ebook/validateUser",
+			data : {
+				username: '18888888888',
+				pwd: '1bbd886460827015e5d605ed44252251'
+			},
+			success : function(data) {
+				console.log(data);
+				$.ajax({
+					type : "get",
+					url : "http://jobreading.xftimes.com/ebook/countInfo/selectPresonalKaoshiScoreCountInfo",
+					data : {
+						username: '18888888888',
+						pwd: '1bbd886460827015e5d605ed44252251'
+					},
+					success : function(data) {
+						console.log(data);
+					}
+				});
+		
+			}
+		});*/
+		
+		
+
+	</script>
+</html>

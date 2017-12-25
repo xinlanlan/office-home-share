@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function object(o) {
+	　　　　function F() {}
+	　　　　F.prototype = o;	
+	　　　　return new F();
+	　　 };
+		var Chinese = {
+			nation: '中国'
+		};
+		var Doctor = {
+			career: '医生'
+		};
+		var Doctor = object(Chinese);
+		Doctor.career = '医生';
+		console.log(Doctor.career);
+	</script>
+</html>

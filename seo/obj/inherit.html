@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+	/*apply的方法继承*/	
+		function Animal(){
+			this.species = '动物';
+		};
+		
+		function Cat(name,color){
+			Animal.apply(this,arguments);
+			this.name = name;
+			this.color = color;
+		};
+		
+		var cat1 = new Cat("大毛","黄色");
+		console.log(cat1.species);
+		
+	</script>
+</html>

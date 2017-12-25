@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		function foo(){
+			return {
+				foo: 'bar'
+			}
+		}
+		function fee(){
+			return 
+			{
+				foo: 'bar'
+			}
+		}
+		console.log(fee())
+		function isPalindrome(str) {
+		    str = str.replace(/\W/g, '').toLowerCase();
+		    return (str == str.split('').reverse().join(''));
+		}
+		console.log(isPalindrome("A car, a man, a maraca"));
+		function sum(x) {
+			if(arguments.length == 2){
+				return arguments[0]+arguments[1];
+			}else{
+				return function(y){
+					return x+y
+				}
+			}
+		}
+		console.log(sum(2,3))
+		console.log(sum(2)(3))
+		
+		var arr1 = "john".split('');
+		var arr2 = arr1.reverse();
+		var arr3 = "jones".split('');
+		arr2.push(arr3);
+		console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));
+		console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
+		
+		
+		console.log(1 +  "2" + "2");
+		console.log(1 +  +"2" + "2");
+		console.log(1 +  -"1" + "2");
+		console.log(1 +  -"1" + 2);
+		console.log(+"1" +  "1" + "2");
+		console.log( "A" - "B" + "2");		//NaN也可以和字符串进行拼接
+		console.log( "A" - "B" + 2);
+		
+		var a = {n: 1};
+		var b = a;
+		a.x = a = {n: 2};
+		console.log(a.x);
+		console.log(b.x);
+		console.log(a)
+		console.log(b)
+	</script>
+</html>

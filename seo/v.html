@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#audio{
+				width: 50px;
+				height: 50px;
+				background-color: #0075F0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="audio"></div>
+		<audio id="item-audio" src="http://tsn.baidu.com/text2audio?tex=中华人民共和国&lan=zh&cuid=64d97b69755144aeae95f67d0c65e6af&ctp=1&per=1&tok=24.00a5c1afc1b5b55414a3c0b66e2a0b6c.2592000.1515034872.282335-10481109"></audio>
+		<ul>
+			<li>
+				<button data-index="0" class="btn">按钮1</button>
+				<button data-index="1" class="btn">按钮2</button>
+				<button data-index="2" class="btn">按钮3</button>
+			</li>
+		</ul>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		var audioSource = document.getElementById('item-audio')
+		var allIndex = 1
+		var audios = [
+			"http://tsn.baidu.com/text2audio?tex=中华人民共和国&lan=zh&cuid=64d97b69755144aeae95f67d0c65e6af&ctp=1&per=1&tok=24.00a5c1afc1b5b55414a3c0b66e2a0b6c.2592000.1515034872.282335-10481109",
+			"http://tsn.baidu.com/text2audio?tex=美利坚众合国&lan=zh&cuid=64d97b69755144aeae95f67d0c65e6af&ctp=1&per=1&tok=24.00a5c1afc1b5b55414a3c0b66e2a0b6c.2592000.1515034872.282335-10481109",
+			"http://tsn.baidu.com/text2audio?tex=小日本帝国&lan=zh&cuid=64d97b69755144aeae95f67d0c65e6af&ctp=1&per=1&tok=24.00a5c1afc1b5b55414a3c0b66e2a0b6c.2592000.1515034872.282335-10481109"
+		],i=0;
+		
+		$('#item-audio').on('ended',function(){
+			console.log(allIndex)
+			if(audios[allIndex]){
+				console.log(this)
+				this.setAttribute('src',audios[allIndex]);
+				this.play();
+				allIndex++;
+			}else{
+				this.setAttribute('src',audios[0]);
+				allIndex = 1;
+				console.log('放完了');
+			};
+			if($('.btn').eq(allIndex-1).hasClass('active')){
+				allIndex--
+			};
+		});
+		
+		document.getElementById('audio').onclick = function(){
+			var audio = document.getElementById('item-audio');
+			if(audio.paused){
+				audio.play()
+			}else{
+				audio.pause()
+			};
+		};
+		
+		$('.btn').click(function(){
+			var index = $(this).attr('data-index');
+			allIndex = index;
+			$(this).toggleClass('active');
+			
+			if(!$(this).hasClass('active')){
+				if(audioSource.paused){
+					audioSource.pause();
+				}else{
+					allIndex++;
+				}
+			};
+			if($(this).hasClass('active')){
+				audioSource.setAttribute('src',audios[allIndex]);
+				audioSource.play();
+			};
+		});
+	</script>
+</html>

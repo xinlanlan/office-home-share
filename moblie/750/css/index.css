@@ -1,0 +1,33 @@
+.header {
+	height: 84px;
+	line-height: 84px;
+	text-align: center;
+	font-size: 34px;
+	background-color: #59c6c1;
+	color: #fff;
+}
+.list{
+	margin-top: 20px;
+}
+.item{
+	display: flex;
+	display: -webkit-flex;
+	box-sizing: border-box;
+	border-bottom: 1px solid #ccc;
+	align-items: center;
+	padding: 20px 40px;
+}
+.icon{
+	flex: 0 0 102px;
+	-webkit-flex: 0 0 102px;
+	width: 120px;
+	padding-right: 80px;
+}
+.icon img{
+	width: 102px;
+	height: 136px;
+}
+.text{
+	flex: 1;
+	-webkit-flex: 1;
+}

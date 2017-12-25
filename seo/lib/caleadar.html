@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/calendar.css"/>
+		<script src="js/fei-calendar.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<button id="btn">点击</button>
+	</body>
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+		var feiCalendar = new feiCalendar(btn);
+		feiCalendar.setOption();
+		
+		/*btn.onclick = function(){
+			var calendar = document.querySelector('.fei-calendar').classList.add('fei-calendar-active');
+		};*/
+	</script>
+</html>

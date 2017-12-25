@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    	body{
+	        background:#2b2938;
+	    }
+	    .btn-audio{
+	        margin: 90px auto;
+	        width: 186px;
+	        height: 186px;
+	        background:#fff;
+	        background-size:cover;
+	    }
+    </style>
+</head>
+<body>
+	<div class="btn-audio"><audio id="mp3Btn"><source src="http://tts.baidu.com/text2audio?lan=zh&amp;ie=UTF-8&amp;spd=2&amp;text=中国人" type="audio/mp3" /></audio></div>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.10.0/jquery.min.js"></script>
+    <!--<audio controls="" name="media"><source src="http://tts.baidu.com/text2audio?lan=zh&amp;ie=UTF-8&amp;spd=2&amp;text=中国人" type="audio/mp3"></audio>-->
+</body>
+<script type="text/javascript">
+        $(function(){
+            //播放完毕
+            $('#mp3Btn').on('ended', function() {
+                console.log("音频已播放完成");
+                $('.btn-audio').css({'background':'red','background-size':'cover'});
+            })
+            //播放器控制
+            var audio = document.getElementById('mp3Btn');
+            audio.volume = .3;
+            $('.btn-audio').click(function() {
+                event.stopPropagation();//防止冒泡
+                if(audio.paused){ //如果当前是暂停状态
+                    $('.btn-audio').css({'background':'blue','background-size':'cover'});
+                    audio.play(); //播放
+                    return;
+                }else{//当前是播放状态
+                    $('.btn-audio').css({'background':'red','background-size':'cover'});
+                    audio.pause(); //暂停
+                }
+            });
+        })
+    </script>
+</html>
+

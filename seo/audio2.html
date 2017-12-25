@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				text-decoration: none;
+				padding: 0.54rem 1.351rem;
+			}
+			.item-txt{
+				display: inline-block;
+			}
+			.btn-audio{
+				display: inline-block;
+				height: 1.351rem;
+				width: 1.351rem;
+				margin-left: 0.54rem;
+				background-color: red;
+				vertical-align: middle;
+				border-radius: 50%;
+			}
+			.item-audio{
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">点击开始</button>
+		<ul class="list">
+			<li>
+				<span class="btn-audio">
+					<audio class="item-audio" id="item-audio">
+						<source src="http://tsn.baidu.com/text2audio?tex=中国共产党&lan=zh&cuid=64d97b69755144aeae95f67d0c65e6af&ctp=1&per=1&tok=24.00a5c1afc1b5b55414a3c0b66e2a0b6c.2592000.1515034872.282335-10481109" type="audio/mp3" />
+					</audio>
+				</span>
+			</li>
+			<li><span class="btn-audio"><audio class="item-audio"><source src="http://tsn.baidu.com/text2audio?tex=中华人民共和国&lan=zh&cuid=64d97b69755144aeae95f67d0c65e6af&ctp=1&per=1&tok=24.00a5c1afc1b5b55414a3c0b66e2a0b6c.2592000.1515034872.282335-10481109" type="audio/mp3" /></audio></span></li>
+			<li><span class="btn-audio"><audio class="item-audio"><source src="http://tsn.baidu.com/text2audio?tex=中国人民共和国的伟大复兴&lan=zh&cuid=64d97b69755144aeae95f67d0c65e6af&ctp=1&per=1&tok=24.00a5c1afc1b5b55414a3c0b66e2a0b6c.2592000.1515034872.282335-10481109" type="audio/mp3" /></audio></span></li>
+			<li><span class="btn-audio"><audio class="item-audio"><source src="http://tsn.baidu.com/text2audio?tex=中华人民共和国的历史进程&lan=zh&cuid=64d97b69755144aeae95f67d0c65e6af&ctp=1&per=1&tok=24.00a5c1afc1b5b55414a3c0b66e2a0b6c.2592000.1515034872.282335-10481109" type="audio/mp3" /></audio></span></li>
+		</ul>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		/*$('.list').on('click','.btn-audio',function() {
+        	var audio = $(this).find('.item-audio')[0];
+        	console.log(audio)
+        	audio.volume = .9;
+            event.stopPropagation();//防止冒泡
+            if(audio.paused){ //如果当前是暂停状态
+                //$('.btn-audio').css({'background':'blue','background-size':'cover'});
+                audio.play(); //播放
+                return;
+            }else{//当前是播放状态
+                //$('.btn-audio').css({'background':'red','background-size':'cover'});
+                audio.pause(); //暂停
+            };
+        });*/
+       	var btn = document.getElementById('btn'),allIndex = 0;
+        btn.onclick = function(){
+        	//var audio = $('.btn-audio').eq(allIndex).find('.item-audio')[0];
+        	var src = $('.btn-audio').eq(allIndex).find('source').attr('src')
+        	//console.log($('.btn-audio').eq(allIndex).find('source').attr('src'))
+        	bos(src)
+        	//bo(audio);
+        };
+        
+        $('.item-audio source').on('ended', function() {
+        	//$(this)[0].currentTime = 0.0
+        	var index = $(this).parents('li').index()+1;
+        	allIndex = index;
+            console.log("音频"+index+"已播放完成");
+            var that = $('.btn-audio').eq(index);
+            //var audio = that.find('.item-audio')[0];
+            var src = that.find('source').attr('src')
+            /*if(!audio){
+            	allIndex = 0;
+            	return;
+            };*/
+            bos(src)
+        	//bo(audio);
+        });
+        
+        function bos(src){
+        	console.log(1)
+        	var audio = new Audio();
+        	audio.src = src;
+        	audio.play()
+        }
+        
+        //播放的函数
+        function bo(audio){
+        	audio.volume = 0.9;
+            event.stopPropagation();//防止冒泡
+            if(audio.paused){ //如果当前是暂停状态
+                //$('.btn-audio').css({'background':'blue','background-size':'cover'});
+                audio.play(); //播放
+                return;
+            }else{//当前是播放状态
+                //$('.btn-audio').css({'background':'red','background-size':'cover'});
+                audio.pause(); //暂停
+            };
+        }
+	</script>
+
+</html>
