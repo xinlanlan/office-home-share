@@ -7,7 +7,7 @@
 	<body>
 	</body>
 	<script type="text/javascript">
-		/*var x = 20;
+		var x = 20;
 		var a = {
 			x: 15,
 			fn: function() {
@@ -18,13 +18,47 @@
 			}
 		}
 		console.log(a.fn()); //function
-		console.log(a.fn()()); //20
-		console.log((a.fn())()); //20
+		console.log(a.fn()()); //30
+		console.log((a.fn())()); //30
 		console.log((a.fn())() == a.fn()()); //true
-		console.log(a.fn().call(this)); //20
-		console.log(a.fn().call(a)); //15	*/
+		console.log(a.fn().call(this)); //30
+		console.log(a.fn().call(a)); //30	
+		/*var x = 20;
+		var a = {
+		    x: 15,
+		    fn: function() {
+		        var x = 30;
+		        //注意！！！！！！
+		        var that = this;
+		        return function() {
+		            return that.x;
+		        };
+		    }
+		}
+		console.log(a.fn());//function
+		console.log(a.fn()());//15
+		console.log((a.fn())());//15
+		console.log((a.fn())() == a.fn()());//true
+		console.log(a.fn().call(this));//15
+		console.log(a.fn().call(a));//15*/
 		
-		function f1() {　　　　
+		/*var x = 20;
+		var a = {
+		    x: 15,
+		    fn: function() {
+		        return function() {
+		            return x;
+		        };
+		    }
+		}
+		console.log(a.fn());//function
+		console.log(a.fn()());//20
+		console.log((a.fn())());//20
+		console.log((a.fn())() == a.fn()());//true
+		console.log(a.fn().call(this));//20
+		console.log(a.fn().call(a));//20*/
+		
+		/*function f1() {　　　　
 			var n = 999;　　　　
 			nAdd = function() {
 				n += 1
@@ -47,6 +81,6 @@
 			}else{
 				arr.unshift('<li data-id="'+d[i].id+'">'+d[i].name+'</li>');
 			};
-		};
+		};*/
 	</script>
 </html>
