@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			h1{
+				margin-top: 20px;
+				font-size: 20px;
+				text-align: center;
+				font-weight: 300;
+			}
+			.list{
+				padding: 10px 20px;
+			}
+			.item{
+				margin-top: 20px;
+			}
+			.item:first-child{
+				margin-top: 0;
+			}
+			.item p{
+				font-size: 14px;
+				margin-bottom: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- accept表示，直接打开系统文件目录。capture表示，可以捕获到系统默认的设备，比如：camera--照相机；camcorder--摄像机；microphone--录音 -->
+		<h1>h5调取相册、文件示例</h1>
+		<div class="list">
+			<!-- 可多选，直接打开系统的文件目录（可选取照片、文件） -->
+			<div class="item">
+				<p>1.可多选，直接打开系统的文件目录（可选取照片、文件）</p>
+				<input type="file" name="file" multiple>
+			</div>
+			
+			<!-- 调用手机的拍照功能 -->
+			<div class="item">
+				<p>2.调用手机的拍照功能</p>
+				<input type="file" accept="image/*" capture="camera">
+			</div>
+			
+			<!-- 调用手机的录像功能 -->
+			<div class="item">
+				<p>3.调用手机的录像功能</p>
+				<input type="file" accept="video/*" capture="camcorder">
+			</div>
+			
+			<!-- 调用手机的录像功能和直接打开系统文件目录。苹果手机调出来的是拍照和录像安卓手机调出来的录音功能 -->
+			<div class="item">
+				<p>4.调用手机的录像功能和直接打开系统文件目录。苹果手机调出来的是拍照和录像安卓手机调出来的录音功能</p>
+				<input type="file" accept="audio/*" capture="microphone">
+			</div>
+		</div>
+		
+		<!--附：同文件夹下的test.html为示例demo，可在手机端进行测试
+连接本地wifi测试地址为：http://172.18.103.53:8020/blog/test/test.html-->
+	</body>
+</html>

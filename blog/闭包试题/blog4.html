@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 打印出1-10000所有的对称数（如11，121，1221）
+		// 方案一、
+		/*for(var i=10;i<10000;i++){
+			var that = i.toString();
+			var len = that.length;
+			if(len%2 === 0){
+				var arr = that.split('');
+				arr.splice(len/2,0,",");
+				var str = arr.join('');
+				arr = str.split(',');
+				var str2 = arr[1].split('').reverse().join('');
+				if(arr[0] == str2){
+					console.log(that)
+				}
+			}else{
+				var arr = that.split('');
+				arr.splice((len-1)/2,1,",");
+				var str = arr.join('');
+				arr = str.split(',');
+				var str2 = arr[1].split('').reverse().join('');
+				if(arr[0] == str2){
+					console.log(that)
+				}
+			}
+		}*/
+		// 方案二、
+		/*for(var i=10;i<10000;i++){
+			if((i+'') === (i+'').split('').reverse().join('')){
+				console.log(i)
+			};
+		};*/
+		
+		// 将数组实现以下方法[1,2,3,4,5].copyReverse(2) ==> [1,2,3,4,5,4,3,2,1,2,3,4,5,4,3,2,1]
+		/*Array.prototype.copyReverse = function(param){
+			var arr1 = this.slice(0).reverse();
+			var arr2 = [],len = param;
+			for(var i=0;i<param;i++){
+				arr2 = arr2.concat(this);
+				arr2.pop();
+				arr2 = arr2.concat(arr1);
+				if(i != len-1){
+					arr2.pop();
+				};
+			};
+			return arr2;
+		};
+		console.log(new Array(1,2,3,4,5).copyReverse(3))*/
+		
+		// 实现一下方法[1,2,3,4,5].copyReverse(2) ==> [1,2,3,4,5,4,3,2,1,2,3,4,5]
+		/*Array.prototype.copyReverse = function(param){
+			var arr1 = this.slice(0).reverse();
+			var arr2 = [],len = param;
+			for(var i=0;i<param;i++){
+				arr2 = arr2.concat(this);
+				//arr2.pop()
+				if(i != len-1){
+					arr2.pop();
+					arr2 = arr2.concat(arr1);
+					arr2.pop();
+				};
+			};
+			return arr2;
+		};
+		console.log(new Array(1,2,3,4,5).copyReverse(3))*/
+		
+		// 
+		/*var number = 123456789;
+		console.log(number.toLocaleString('en-us'))  
+		console.log(Number.prototype)*/
+		var arr = [1,2,3]
+		console.log(arr.toString())
+	</script>
+</html>
